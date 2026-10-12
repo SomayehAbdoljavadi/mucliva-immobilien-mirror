@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep brand colors in semantic global CSS tokens and map them to Tailwind; shared controls inherit these roles to prevent page-specific palette drift.

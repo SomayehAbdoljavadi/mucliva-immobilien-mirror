@@ -1,9 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "MUCLIVA Immobilien | München" },
+      { name: "description", content: "MUCLIVA Immobilien – regional, zuverlässig und nachhaltig in München." },
+      { property: "og:title", content: "MUCLIVA Immobilien | München" },
+      { property: "og:description", content: "MUCLIVA Immobilien – regional, zuverlässig und nachhaltig in München." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
@@ -11,8 +18,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
+      className="flex min-h-screen items-center justify-center bg-background"
     >
       <img
         data-lovable-blank-page-placeholder="REMOVE_THIS"
