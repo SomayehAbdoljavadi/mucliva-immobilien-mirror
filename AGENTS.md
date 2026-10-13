@@ -14,6 +14,6 @@
 - Centralize editable listings, team profiles, district descriptions and photography in the site data module; only verified listings and team records may populate catalogs.
 - Keep wizard drafts only in the root React provider during navigation, never persistent browser storage, so personal data does not remain on shared devices.
 - Public inquiry intake is write-only through a validated server function with signed anti-spam challenge, honeypot and atomic per-email rate limiting; inquiry records have no browser read grants.
-- Store submitted inquiries in Lovable Cloud and confirm only successful storage; email delivery is a separate integration and must never be implied.
+- Store submitted inquiries in Lovable Cloud first; the internal notification email is sent afterwards from the same server function and its failure must never undo or hide the stored inquiry. Visitor-facing copy never promises email delivery.
 - Prebundle the shared React, Slot and discovered client dependency graph at startup; this prevents late optimizer passes from mixing React instances in an open preview.
 - The public site is German-only; the t() helper is an identity function kept so components need no rewrite. Apply the appearance preference after hydration and persist only that non-personal setting to avoid server/client mismatches.
