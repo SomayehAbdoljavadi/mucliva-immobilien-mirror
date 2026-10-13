@@ -1,7 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { LegalPage } from '@/components/mucliva/pages';
+import { ImpressumPage } from '@/components/mucliva/impressum';
 import { pageHead } from '@/lib/site';
 export const Route = createFileRoute('/impressum')({
- head: () => pageHead('Impressum', 'Rechtliche Anbieterinformationen zu MUCLIVA Immobilien. Entwurf zur Vervollständigung und rechtlichen Prüfung.', '/impressum'),
- component: LegalPage,
+ head: () => pageHead('Impressum', 'Impressum von MUCLIVA Immobilien – eine Marke der Munich Construction GmbH, Heiterwanger Straße 30, 81373 München.', '/impressum'),
+ component: ImpressumPage,
 });
