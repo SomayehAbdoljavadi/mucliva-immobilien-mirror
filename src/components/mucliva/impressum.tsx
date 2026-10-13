@@ -3,6 +3,7 @@ import { useLanguage } from '@/lib/preferences';
 // Publish only once verified: VAT ID, § 34c permit status, and whether § 18 Abs. 2 MStV applies.
 const VAT_ID: string | null = null;
 const SHOW_EDITORIAL_RESPONSIBLE = false;
+const LICENSE_34C_GRANTED = false;
 
 export function ImpressumPage() {
   const { t } = useLanguage();
@@ -49,6 +50,7 @@ export function ImpressumPage() {
         </section>
       )}
 
+      {LICENSE_34C_GRANTED && (
       <section className="legal-block">
         <h2>{t('Gewerberechtliche Angaben')}</h2>
         <p>
@@ -56,6 +58,7 @@ export function ImpressumPage() {
           {t('Rechtsgrundlage')}: § 34c Abs. 1 Satz 1 Nr. 1 GewO
         </p>
       </section>
+      )}
 
       <section className="legal-block">
         <h2>{t('Zuständige Aufsichtsbehörde')}</h2>
