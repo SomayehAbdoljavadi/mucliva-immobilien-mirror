@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from './localized-link';
 import { useEffect, useState } from "react";
 
 // Information-only notice: the site uses strictly necessary technologies only,

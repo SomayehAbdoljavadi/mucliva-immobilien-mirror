@@ -1,5 +1,6 @@
 import { Moon, Sun } from 'lucide-react';
-import { Link, useLocation } from '@tanstack/react-router';
+import { useLocation } from '@tanstack/react-router';
+import { Link } from './localized-link';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/lib/preferences';
 import { alternatesFor } from '@/lib/i18n-routes';

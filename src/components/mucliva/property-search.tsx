@@ -1,6 +1,6 @@
 import { useLanguage } from '@/lib/preferences';
 import { useRef, useState } from 'react';
-import { Link } from '@tanstack/react-router';
+import { Link } from './localized-link';
 import { ArrowRight, Search, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { districts, properties, images, type Property } from '@/lib/site';
