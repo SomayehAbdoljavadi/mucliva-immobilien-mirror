@@ -1,9 +1,8 @@
 import { useLanguage } from '@/lib/preferences';
 
-function Pending({ children }: { children: string }) {
-  const { t } = useLanguage();
-  return <span className="legal-pending">{t(children)}</span>;
-}
+// Publish only once verified: VAT ID, § 34c permit status, and whether § 18 Abs. 2 MStV applies.
+const VAT_ID: string | null = null;
+const SHOW_EDITORIAL_RESPONSIBLE = false;
 
 export function ImpressumPage() {
   const { t } = useLanguage();
@@ -32,8 +31,8 @@ export function ImpressumPage() {
         <h2>{t('Kontakt')}</h2>
         <p>
           {t('Telefon')}: <a href="tel:+498957843675">+49 (0) 89 57 84 3675</a><br />
-          {t('E-Mail')}: <Pending>Wird ergänzt</Pending><br />
-          {t('Website')}: <Pending>Wird ergänzt</Pending>
+          {t('E-Mail')}: <a href="mailto:info@mucliva.de">info@mucliva.de</a><br />
+          {t('Website')}: <a href="https://mucliva.de">mucliva.de</a>
         </p>
       </section>
 
@@ -42,17 +41,18 @@ export function ImpressumPage() {
         <p>{t('Registergericht')}: {t('Amtsgericht München')}<br />{t('Registernummer')}: HRB 264907</p>
       </section>
 
-      <section className="legal-block">
-        <h2>{t('Umsatzsteuer-Identifikationsnummer')}</h2>
-        <p><Pending>Wird ergänzt</Pending></p>
-      </section>
+      {VAT_ID && (
+        <section className="legal-block">
+          <h2>{t('Umsatzsteuer-Identifikationsnummer')}</h2>
+          <p>{t('Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG')}: {VAT_ID}</p>
+        </section>
+      )}
 
       <section className="legal-block">
         <h2>{t('Gewerberechtliche Angaben')}</h2>
         <p>
           {t('Tätigkeit')}: {t('Immobilienvermittlung / Immobilienmakler')}<br />
-          {t('Rechtsgrundlage')}: § 34c Abs. 1 Satz 1 Nr. 1 GewO<br />
-          {t('Status der Gewerbeerlaubnis')}: <Pending>In Klärung</Pending>
+          {t('Rechtsgrundlage')}: § 34c Abs. 1 Satz 1 Nr. 1 GewO
         </p>
       </section>
 
@@ -72,10 +72,12 @@ export function ImpressumPage() {
         </ul>
       </section>
 
-      <section className="legal-block">
-        <h2>{t('Verantwortlich für redaktionelle Inhalte gemäß § 18 Abs. 2 MStV')}</h2>
-        <p>Mehdi Mardi<br />Heiterwanger Straße 30<br />81373 München</p>
-      </section>
+      {SHOW_EDITORIAL_RESPONSIBLE && (
+        <section className="legal-block">
+          <h2>{t('Verantwortlich für den Inhalt gemäß § 18 Abs. 2 MStV')}</h2>
+          <p>Mehdi Mardi<br />Heiterwanger Straße 30<br />81373 München</p>
+        </section>
+      )}
     </article>
   );
 }
