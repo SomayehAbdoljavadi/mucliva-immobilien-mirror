@@ -14,6 +14,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header, Footer } from '@/components/mucliva/layout';
 import { InquiryDraftProvider } from '@/components/mucliva/forms';
+import { PreferencesProvider } from '@/lib/preferences';
 
 function NotFoundComponent() {
   return (
@@ -121,11 +122,13 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <PreferencesProvider>
       <InquiryDraftProvider>
         <Header />
         <main id="main"><Outlet /></main>
         <Footer />
       </InquiryDraftProvider>
+      </PreferencesProvider>
     </QueryClientProvider>
   );
 }

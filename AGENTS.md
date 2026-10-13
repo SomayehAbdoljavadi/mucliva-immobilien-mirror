@@ -16,3 +16,5 @@
 - Public inquiry intake is write-only through a validated server function with signed anti-spam challenge, honeypot and atomic per-email rate limiting; inquiry records have no browser read grants.
 - Store submitted inquiries in Lovable Cloud and confirm only successful storage; email delivery is a separate integration and must never be implied.
 - Prebundle the shared React, Slot and discovered client dependency graph at startup; this prevents late optimizer passes from mixing React instances in an open preview.
+- Keep translations in a shared catalog and retain canonical German form values independently of labels; language changes must not alter validation, filters or drafts.
+- Apply language, direction and appearance preferences after hydration and persist only these non-personal settings; this avoids server/client mismatches and keeps Persian layouts consistent.
