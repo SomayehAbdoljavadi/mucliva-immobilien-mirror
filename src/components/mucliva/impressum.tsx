@@ -6,12 +6,13 @@ const SHOW_EDITORIAL_RESPONSIBLE = false;
 const LICENSE_34C_GRANTED = false;
 
 export function ImpressumPage() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   return (
     <article className="container legal-page page-enter">
       <span className="eyebrow">{t('RECHTLICHE INFORMATIONEN')}</span>
       <h1>{t('Impressum')}</h1>
       <p className="legal-subtitle">{t('Rechtliche Angaben zu MUCLIVA Immobilien')}</p>
+      {language==='en'&&<p className="legal-subtitle"><em>{t('Die deutsche Fassung ist rechtlich maßgeblich.')}</em></p>}
 
       <section className="legal-block">
         <h2>{t('Angaben gemäß § 5 DDG')}</h2>
@@ -24,23 +25,23 @@ export function ImpressumPage() {
       </section>
 
       <section className="legal-block">
-        <h2>Vertretungsberechtigter Geschäftsführer</h2>
-        <p>Dipl.-Ing. Mehdi Mardi<br />Geschäftsführer – Munich Construction GmbH</p>
+        <h2>{t('Vertretungsberechtigter Geschäftsführer')}</h2>
+        <p>Dipl.-Ing. Mehdi Mardi<br />{t('Geschäftsführer – Munich Construction GmbH')}</p>
       </section>
 
       <section className="legal-block">
         <h2>{t('Kontakt')}</h2>
         <p>
           {t('Telefon')}: <a href="tel:+498957843675">+49 (0) 89 57 84 3675</a><br />
-          Mobil: <a href="tel:+4917632354815">+49 (176) 3235 4815</a><br />
+          {t('Mobil')}: <a href="tel:+4917632354815">+49 (176) 3235 4815</a><br />
           {t('E-Mail')}: <a href="mailto:info@mucliva.de">info@mucliva.de</a><br />
           {t('Website')}: <a href="https://mucliva.de">mucliva.de</a>
         </p>
       </section>
 
       <section className="legal-block">
-        <h2>Registereintrag</h2>
-        <p>{t('Registergericht')}: {t('Amtsgericht München')}<br />Handelsregister: HRB 264907</p>
+        <h2>{t('Registereintrag')}</h2>
+        <p>{t('Registergericht')}: {t('Amtsgericht München')}<br />{t('Handelsregister')}: HRB 264907</p>
       </section>
 
       {VAT_ID && (
@@ -77,8 +78,8 @@ export function ImpressumPage() {
       </section>
 
       <section className="legal-block">
-        <h2>Marke und Geschäftsbereich</h2>
-        <p>MUCLIVA Immobilien ist eine Marke der Munich Construction GmbH. Unter dieser Marke entwickelt das Unternehmen seinen Geschäftsbereich für Immobilienvermittlung mit Schwerpunkt München und Umgebung.</p>
+        <h2>{t('Marke und Geschäftsbereich')}</h2>
+        <p>{t('MUCLIVA Immobilien ist eine Marke der Munich Construction GmbH. Unter dieser Marke entwickelt das Unternehmen seinen Geschäftsbereich für Immobilienvermittlung mit Schwerpunkt München und Umgebung.')}</p>
       </section>
 
       {SHOW_EDITORIAL_RESPONSIBLE && (

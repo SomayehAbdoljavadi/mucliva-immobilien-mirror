@@ -1,5 +1,5 @@
 import { useLanguage } from '@/lib/preferences';
-import { Link } from '@tanstack/react-router';
+import { Link } from './localized-link';
 import { ArrowUpRight, MapPin, ShieldCheck, Leaf } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import monogram from '@/assets/monogram.asset.json';

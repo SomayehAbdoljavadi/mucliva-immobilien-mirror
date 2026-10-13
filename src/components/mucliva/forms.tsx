@@ -1,6 +1,6 @@
 import { useLanguage } from '@/lib/preferences';
 import { createContext, useContext, useEffect, useState, type ReactNode, type FormEvent } from 'react';
-import { Link } from '@tanstack/react-router';
+import { Link } from './localized-link';
 import { useServerFn } from '@tanstack/react-start';
 import { ArrowRight, ArrowLeft, Building2, House, Trees, Check, CheckCircle2, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';

@@ -1,21 +1,52 @@
-import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
+import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from 'react';
+import { useLocation, useNavigate } from '@tanstack/react-router';
+import { en } from './translations';
+import { alternatesFor, languageFromPath, type Language } from './i18n-routes';
 
-// The public site is German-only; t() stays as an identity helper so components need no rewrite.
-export type Language = 'de';
+export type { Language };
+// Language comes from the URL (/en/* = English) so server and client render identically.
 type Preferences = { language: Language; dark: boolean; toggleTheme: () => void; t: <T>(text: T) => T };
-export function translate<T>(text: T): T { return text; }
-const PreferencesContext = createContext<Preferences>({ language:'de', dark:false, toggleTheme:()=>{}, t:text=>text });
-export function PreferencesProvider({children}:{children:ReactNode}) {
-  const [dark,setDark] = useState(false);
-  useEffect(()=>{
-    try { localStorage.removeItem('mucliva-language'); setDark(localStorage.getItem('mucliva-theme')==='dark'); } catch { /* optional */ }
-  },[]);
-  useEffect(()=>{
-    document.documentElement.lang='de';
-    document.documentElement.dir='ltr';
-    document.documentElement.classList.toggle('dark',dark);
-  },[dark]);
-  const toggleTheme=()=>setDark(previous=>{try{localStorage.setItem('mucliva-theme',previous?'light':'dark')}catch{}return !previous});
-  return <PreferencesContext.Provider value={{language:'de',dark,toggleTheme,t:translate}}>{children}</PreferencesContext.Provider>;
+export function translate<T>(text: T, language: Language = 'de'): T {
+  if (language === 'en' && typeof text === 'string') return ((en[text] ?? text) as unknown) as T;
+  return text;
 }
-export const useLanguage=()=>useContext(PreferencesContext);
+const identity = <T,>(text: T) => text;
+const PreferencesContext = createContext<Preferences>({ language: 'de', dark: false, toggleTheme: () => {}, t: identity });
+const LANG_KEY = 'mucliva-language';
+
+export function PreferencesProvider({ children }: { children: ReactNode }) {
+  const [dark, setDark] = useState(false);
+  const { pathname, hash } = useLocation();
+  const navigate = useNavigate();
+  const language = languageFromPath(pathname);
+  const restored = useRef(false);
+
+  useEffect(() => {
+    try { setDark(localStorage.getItem('mucliva-theme') === 'dark'); } catch { /* optional */ }
+  }, []);
+
+  // Returning visitors land in their last chosen language (only once, on first load).
+  useEffect(() => {
+    if (restored.current) return;
+    restored.current = true;
+    try {
+      if (localStorage.getItem(LANG_KEY) === 'en' && language === 'de') {
+        void navigate({ to: alternatesFor(pathname).en as never, ...(hash ? { hash } : {}), replace: true });
+      }
+    } catch { /* optional */ }
+  }, [language, pathname, hash, navigate]);
+
+  useEffect(() => {
+    if (!restored.current) return;
+    try { localStorage.setItem(LANG_KEY, language); } catch { /* optional */ }
+    document.documentElement.lang = language;
+    document.documentElement.dir = 'ltr';
+  }, [language]);
+
+  useEffect(() => { document.documentElement.classList.toggle('dark', dark); }, [dark]);
+
+  const toggleTheme = () => setDark(previous => { try { localStorage.setItem('mucliva-theme', previous ? 'light' : 'dark'); } catch { /* optional */ } return !previous; });
+  const t = <T,>(text: T) => translate(text, language);
+  return <PreferencesContext.Provider value={{ language, dark, toggleTheme, t }}>{children}</PreferencesContext.Provider>;
+}
+export const useLanguage = () => useContext(PreferencesContext);
