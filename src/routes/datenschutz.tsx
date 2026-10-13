@@ -1,7 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { LegalPage } from '@/components/mucliva/pages';
+import { DatenschutzPage } from '@/components/mucliva/datenschutz';
 import { pageHead } from '@/lib/site';
 export const Route = createFileRoute('/datenschutz')({
- head: () => pageHead('Datenschutz', 'Informationen zum Datenschutz und zur Verarbeitung von Anfragen bei MUCLIVA Immobilien. Entwurf zur rechtlichen Prüfung.', '/datenschutz'),
- component: () => <LegalPage privacy />,
+ head: () => pageHead('Datenschutz', 'Datenschutzhinweise von MUCLIVA Immobilien, einer Marke der Munich Construction GmbH: Verarbeitung von Anfragen, Hosting und Ihre Rechte.', '/datenschutz'),
+ component: DatenschutzPage,
 });
