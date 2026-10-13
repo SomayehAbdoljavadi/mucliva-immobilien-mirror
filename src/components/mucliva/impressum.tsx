@@ -3,6 +3,7 @@ import { useLanguage } from '@/lib/preferences';
 // Publish only once verified: VAT ID, § 34c permit status, and whether § 18 Abs. 2 MStV applies.
 const VAT_ID: string | null = null;
 const SHOW_EDITORIAL_RESPONSIBLE = false;
+const LICENSE_34C_GRANTED = false;
 
 export function ImpressumPage() {
   const { t } = useLanguage();
@@ -23,22 +24,23 @@ export function ImpressumPage() {
       </section>
 
       <section className="legal-block">
-        <h2>{t('Vertreten durch')}</h2>
-        <p>{t('Geschäftsführer')}:<br />Dipl.-Ing. Mehdi Mardi</p>
+        <h2>Vertretungsberechtigter Geschäftsführer</h2>
+        <p>Dipl.-Ing. Mehdi Mardi<br />Geschäftsführer – Munich Construction GmbH</p>
       </section>
 
       <section className="legal-block">
         <h2>{t('Kontakt')}</h2>
         <p>
           {t('Telefon')}: <a href="tel:+498957843675">+49 (0) 89 57 84 3675</a><br />
+          Mobil: <a href="tel:+4917632354815">+49 (176) 3235 4815</a><br />
           {t('E-Mail')}: <a href="mailto:info@mucliva.de">info@mucliva.de</a><br />
           {t('Website')}: <a href="https://mucliva.de">mucliva.de</a>
         </p>
       </section>
 
       <section className="legal-block">
-        <h2>{t('Handelsregister')}</h2>
-        <p>{t('Registergericht')}: {t('Amtsgericht München')}<br />{t('Registernummer')}: HRB 264907</p>
+        <h2>Registereintrag</h2>
+        <p>{t('Registergericht')}: {t('Amtsgericht München')}<br />Handelsregister: HRB 264907</p>
       </section>
 
       {VAT_ID && (
@@ -48,6 +50,7 @@ export function ImpressumPage() {
         </section>
       )}
 
+      {LICENSE_34C_GRANTED && (
       <section className="legal-block">
         <h2>{t('Gewerberechtliche Angaben')}</h2>
         <p>
@@ -55,6 +58,7 @@ export function ImpressumPage() {
           {t('Rechtsgrundlage')}: § 34c Abs. 1 Satz 1 Nr. 1 GewO
         </p>
       </section>
+      )}
 
       <section className="legal-block">
         <h2>{t('Zuständige Aufsichtsbehörde')}</h2>
@@ -70,6 +74,11 @@ export function ImpressumPage() {
           <li><a href="https://www.gesetze-im-internet.de/gewo/__34c.html" target="_blank" rel="noopener noreferrer">§ 34c Gewerbeordnung (GewO)</a></li>
           <li><a href="https://www.gesetze-im-internet.de/mabv/" target="_blank" rel="noopener noreferrer">Makler- und Bauträgerverordnung (MaBV)</a></li>
         </ul>
+      </section>
+
+      <section className="legal-block">
+        <h2>Marke und Geschäftsbereich</h2>
+        <p>MUCLIVA Immobilien ist eine Marke der Munich Construction GmbH. Unter dieser Marke entwickelt das Unternehmen seinen Geschäftsbereich für Immobilienvermittlung mit Schwerpunkt München und Umgebung.</p>
       </section>
 
       {SHOW_EDITORIAL_RESPONSIBLE && (
