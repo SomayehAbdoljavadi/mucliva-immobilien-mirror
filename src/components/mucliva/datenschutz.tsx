@@ -45,7 +45,7 @@ export function DatenschutzPage() {
           <li>Datum und Uhrzeit der Anfrage</li>
         </ul>
         <p>
-          Wir verwenden diese Daten ausschließlich zur Bearbeitung Ihrer Anfrage und zur Kontaktaufnahme mit Ihnen. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Durchführung vorvertraglicher Maßnahmen auf Ihre Anfrage) sowie Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO, die Sie jederzeit mit Wirkung für die Zukunft widerrufen können. Eine automatische Preisbewertung oder automatisierte Entscheidungsfindung findet nicht statt.
+          Wir verwenden diese Daten ausschließlich zur Bearbeitung Ihrer Anfrage und zur Kontaktaufnahme mit Ihnen. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Durchführung vorvertraglicher Maßnahmen auf Ihre Anfrage) sowie Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO, die Sie jederzeit mit Wirkung für die Zukunft widerrufen können. Nach dem Absenden wird Ihre Anfrage zusätzlich per E-Mail an unser Postfach info@mucliva.de weitergeleitet; der Versand erfolgt über den E-Mail-Dienst der Plattform Lovable. Eine automatische Preisbewertung oder automatisierte Entscheidungsfindung findet nicht statt.
         </p>
         <p>
           Zum Schutz vor Missbrauch prüfen wir Formularübermittlungen technisch, unter anderem durch ein verstecktes Prüffeld, ein zeitlich begrenztes Sicherheitsmerkmal und eine Begrenzung der Anzahl von Anfragen je E-Mail-Adresse. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; unser berechtigtes Interesse liegt in der Abwehr von Spam und Missbrauch.
