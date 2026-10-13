@@ -13,5 +13,5 @@ type Props = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> & {
 /** Link that takes German paths and points to the current language's URL. */
 export function Link({ to, ...rest }: Props) {
   const { language } = useLanguage();
-  return <RouterLink {...rest} to={localizePath(to, language) as never} />;
+  return <RouterLink {...(rest as Record<string, unknown>)} to={localizePath(to, language) as never} />;
 }
