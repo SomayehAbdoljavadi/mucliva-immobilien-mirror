@@ -31,7 +31,7 @@ export function PreferencesProvider({ children }: { children: ReactNode }) {
     restored.current = true;
     try {
       if (localStorage.getItem(LANG_KEY) === 'en' && language === 'de') {
-        void navigate({ to: alternatesFor(pathname).en as never, hash: hash || undefined, replace: true });
+        void navigate({ to: alternatesFor(pathname).en as never, ...(hash ? { hash } : {}), replace: true });
       }
     } catch { /* optional */ }
   }, [language, pathname, hash, navigate]);

@@ -14,7 +14,7 @@ export function LanguageSwitch({ className = '' }: { className?: string }) {
       {(['de', 'en'] as const).map((l, i) => (
         <span key={l} className="contents">
           {i > 0 && <span aria-hidden="true" className="language-sep">|</span>}
-          <Link to={alt[l] as never} hash={hash || undefined} hrefLang={l} lang={l} aria-current={language === l ? 'true' : undefined} className={language === l ? 'active' : undefined}>
+          <Link to={alt[l] as never} {...(hash ? { hash } : {})} hrefLang={l} lang={l} aria-current={language === l ? 'true' : undefined} className={language === l ? 'active' : undefined}>
             {l.toUpperCase()}
           </Link>
         </span>
