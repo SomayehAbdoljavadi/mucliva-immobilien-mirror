@@ -18,6 +18,14 @@ import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as UeberUnsRouteImport } from './routes/ueber-uns'
 import { Route as VerkaufenRouteImport } from './routes/verkaufen'
+import { Route as EnIndexRouteImport } from './routes/en/index'
+import { Route as EnAboutRouteImport } from './routes/en/about'
+import { Route as EnContactRouteImport } from './routes/en/contact'
+import { Route as EnLegalNoticeRouteImport } from './routes/en/legal-notice'
+import { Route as EnPrivacyPolicyRouteImport } from './routes/en/privacy-policy'
+import { Route as EnPropertiesRouteImport } from './routes/en/properties'
+import { Route as EnSellRouteImport } from './routes/en/sell'
+import { Route as EnValuationRouteImport } from './routes/en/valuation'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 
 const IndexRoute = IndexRouteImport.update({
@@ -65,6 +73,46 @@ const VerkaufenRoute = VerkaufenRouteImport.update({
   path: '/verkaufen',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EnIndexRoute = EnIndexRouteImport.update({
+  id: '/en/',
+  path: '/en/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnAboutRoute = EnAboutRouteImport.update({
+  id: '/en/about',
+  path: '/en/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnContactRoute = EnContactRouteImport.update({
+  id: '/en/contact',
+  path: '/en/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnLegalNoticeRoute = EnLegalNoticeRouteImport.update({
+  id: '/en/legal-notice',
+  path: '/en/legal-notice',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnPrivacyPolicyRoute = EnPrivacyPolicyRouteImport.update({
+  id: '/en/privacy-policy',
+  path: '/en/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnPropertiesRoute = EnPropertiesRouteImport.update({
+  id: '/en/properties',
+  path: '/en/properties',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnSellRoute = EnSellRouteImport.update({
+  id: '/en/sell',
+  path: '/en/sell',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnValuationRoute = EnValuationRouteImport.update({
+  id: '/en/valuation',
+  path: '/en/valuation',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LovableEmailTransactionalPreviewRoute =
   LovableEmailTransactionalPreviewRouteImport.update({
     id: '/lovable/email/transactional/preview',
@@ -82,6 +130,14 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ueber-uns': typeof UeberUnsRoute
   '/verkaufen': typeof VerkaufenRoute
+  '/en/about': typeof EnAboutRoute
+  '/en/contact': typeof EnContactRoute
+  '/en/legal-notice': typeof EnLegalNoticeRoute
+  '/en/privacy-policy': typeof EnPrivacyPolicyRoute
+  '/en/properties': typeof EnPropertiesRoute
+  '/en/sell': typeof EnSellRoute
+  '/en/valuation': typeof EnValuationRoute
+  '/en/': typeof EnIndexRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRoutesByTo {
@@ -94,6 +150,14 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ueber-uns': typeof UeberUnsRoute
   '/verkaufen': typeof VerkaufenRoute
+  '/en/about': typeof EnAboutRoute
+  '/en/contact': typeof EnContactRoute
+  '/en/legal-notice': typeof EnLegalNoticeRoute
+  '/en/privacy-policy': typeof EnPrivacyPolicyRoute
+  '/en/properties': typeof EnPropertiesRoute
+  '/en/sell': typeof EnSellRoute
+  '/en/valuation': typeof EnValuationRoute
+  '/en': typeof EnIndexRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRoutesById {
@@ -107,6 +171,14 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ueber-uns': typeof UeberUnsRoute
   '/verkaufen': typeof VerkaufenRoute
+  '/en/about': typeof EnAboutRoute
+  '/en/contact': typeof EnContactRoute
+  '/en/legal-notice': typeof EnLegalNoticeRoute
+  '/en/privacy-policy': typeof EnPrivacyPolicyRoute
+  '/en/properties': typeof EnPropertiesRoute
+  '/en/sell': typeof EnSellRoute
+  '/en/valuation': typeof EnValuationRoute
+  '/en/': typeof EnIndexRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRouteTypes {
@@ -121,6 +193,14 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/ueber-uns'
     | '/verkaufen'
+    | '/en/about'
+    | '/en/contact'
+    | '/en/legal-notice'
+    | '/en/privacy-policy'
+    | '/en/properties'
+    | '/en/sell'
+    | '/en/valuation'
+    | '/en/'
     | '/lovable/email/transactional/preview'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -133,6 +213,14 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/ueber-uns'
     | '/verkaufen'
+    | '/en/about'
+    | '/en/contact'
+    | '/en/legal-notice'
+    | '/en/privacy-policy'
+    | '/en/properties'
+    | '/en/sell'
+    | '/en/valuation'
+    | '/en'
     | '/lovable/email/transactional/preview'
   id:
     | '__root__'
@@ -145,6 +233,14 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/ueber-uns'
     | '/verkaufen'
+    | '/en/about'
+    | '/en/contact'
+    | '/en/legal-notice'
+    | '/en/privacy-policy'
+    | '/en/properties'
+    | '/en/sell'
+    | '/en/valuation'
+    | '/en/'
     | '/lovable/email/transactional/preview'
   fileRoutesById: FileRoutesById
 }
@@ -158,6 +254,14 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   UeberUnsRoute: typeof UeberUnsRoute
   VerkaufenRoute: typeof VerkaufenRoute
+  EnAboutRoute: typeof EnAboutRoute
+  EnContactRoute: typeof EnContactRoute
+  EnLegalNoticeRoute: typeof EnLegalNoticeRoute
+  EnPrivacyPolicyRoute: typeof EnPrivacyPolicyRoute
+  EnPropertiesRoute: typeof EnPropertiesRoute
+  EnSellRoute: typeof EnSellRoute
+  EnValuationRoute: typeof EnValuationRoute
+  EnIndexRoute: typeof EnIndexRoute
   LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
 }
 
@@ -226,6 +330,62 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VerkaufenRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/en/': {
+      id: '/en/'
+      path: '/en'
+      fullPath: '/en/'
+      preLoaderRoute: typeof EnIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/about': {
+      id: '/en/about'
+      path: '/en/about'
+      fullPath: '/en/about'
+      preLoaderRoute: typeof EnAboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/contact': {
+      id: '/en/contact'
+      path: '/en/contact'
+      fullPath: '/en/contact'
+      preLoaderRoute: typeof EnContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/legal-notice': {
+      id: '/en/legal-notice'
+      path: '/en/legal-notice'
+      fullPath: '/en/legal-notice'
+      preLoaderRoute: typeof EnLegalNoticeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/privacy-policy': {
+      id: '/en/privacy-policy'
+      path: '/en/privacy-policy'
+      fullPath: '/en/privacy-policy'
+      preLoaderRoute: typeof EnPrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/properties': {
+      id: '/en/properties'
+      path: '/en/properties'
+      fullPath: '/en/properties'
+      preLoaderRoute: typeof EnPropertiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/sell': {
+      id: '/en/sell'
+      path: '/en/sell'
+      fullPath: '/en/sell'
+      preLoaderRoute: typeof EnSellRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/valuation': {
+      id: '/en/valuation'
+      path: '/en/valuation'
+      fullPath: '/en/valuation'
+      preLoaderRoute: typeof EnValuationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/lovable/email/transactional/preview': {
       id: '/lovable/email/transactional/preview'
       path: '/lovable/email/transactional/preview'
@@ -246,6 +406,14 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   UeberUnsRoute: UeberUnsRoute,
   VerkaufenRoute: VerkaufenRoute,
+  EnAboutRoute: EnAboutRoute,
+  EnContactRoute: EnContactRoute,
+  EnLegalNoticeRoute: EnLegalNoticeRoute,
+  EnPrivacyPolicyRoute: EnPrivacyPolicyRoute,
+  EnPropertiesRoute: EnPropertiesRoute,
+  EnSellRoute: EnSellRoute,
+  EnValuationRoute: EnValuationRoute,
+  EnIndexRoute: EnIndexRoute,
   LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,
 }
 export const routeTree = rootRouteImport
