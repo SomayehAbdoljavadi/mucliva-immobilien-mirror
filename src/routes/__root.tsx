@@ -15,6 +15,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header, Footer } from '@/components/mucliva/layout';
 import { InquiryDraftProvider } from '@/components/mucliva/forms';
 import { PreferencesProvider } from '@/lib/preferences';
+import { PrivacyNotice } from '@/components/mucliva/privacy-notice';
 
 function NotFoundComponent() {
   return (
@@ -127,6 +128,7 @@ function RootComponent() {
         <Header />
         <main id="main"><Outlet /></main>
         <Footer />
+        <PrivacyNotice />
       </InquiryDraftProvider>
       </PreferencesProvider>
     </QueryClientProvider>

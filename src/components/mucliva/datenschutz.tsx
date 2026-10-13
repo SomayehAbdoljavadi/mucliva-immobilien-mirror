@@ -62,7 +62,7 @@ export function DatenschutzPage() {
       <section className="legal-block">
         <h2>6. Cookies, lokale Speicherung und Tracking</h2>
         <p>
-          Diese Website setzt keine Analyse-, Werbe- oder Tracking-Dienste ein und verwendet keine Cookies zu solchen Zwecken. Wenn Sie den hellen oder dunklen Darstellungsmodus wählen, wird ausschließlich diese Einstellung im lokalen Speicher Ihres Browsers abgelegt. Sie enthält keine personenbezogenen Daten und kann jederzeit über die Browsereinstellungen gelöscht werden. Formulareingaben werden nicht im Browser gespeichert.
+          Diese Website setzt keine Analyse-, Werbe- oder Tracking-Dienste ein und verwendet keine Cookies zu solchen Zwecken. Wenn Sie den hellen oder dunklen Darstellungsmodus wählen, wird ausschließlich diese Einstellung im lokalen Speicher Ihres Browsers abgelegt. Sie enthält keine personenbezogenen Daten und kann jederzeit über die Browsereinstellungen gelöscht werden. Zusätzlich speichern wir dort, dass Sie unseren Datenschutzhinweis geschlossen haben, damit er nicht erneut erscheint. Beide Einträge sind für die von Ihnen gewünschte Darstellung technisch erforderlich (§ 25 Abs. 2 Nr. 2 TDDDG); eine Einwilligung ist daher nicht erforderlich, und es gibt keine optionalen Cookie-Kategorien. Formulareingaben werden nicht im Browser gespeichert.
         </p>
         <p>Schriftarten werden lokal von unserem Server bereitgestellt; es erfolgt keine Verbindung zu externen Schriftanbietern.</p>
       </section>
