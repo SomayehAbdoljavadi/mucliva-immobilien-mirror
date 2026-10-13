@@ -23,5 +23,13 @@ export const submitInquiry = createServerFn({ method: 'POST' }).inputValidator((
  const { supabaseAdmin } = await import('@/integrations/supabase/client.server');
  const { data: id, error } = await supabaseAdmin.rpc('save_property_inquiry',{ p_kind:data.kind,p_name:data.name,p_email:data.email,p_phone:data.phone,p_details:data.details });
  if (error || !id) throw new Error(error?.message.includes('inquiry_rate_limit') ? 'Zu viele Anfragen. Bitte versuchen Sie es in einer Stunde erneut.' : 'Ihre Anfrage konnte nicht gespeichert werden. Bitte versuchen Sie es erneut.');
- return { id, saved: true };
+ // Notify the team; storage already succeeded, so an email failure is reported, not hidden.
+ let emailed = false;
+ try {
+  const { sendTemplateEmail } = await import('@/lib/email-templates/send-email');
+  const submittedAt = new Intl.DateTimeFormat('de-DE',{dateStyle:'medium',timeStyle:'short',timeZone:'Europe/Berlin'}).format(new Date());
+  const result = await sendTemplateEmail('inquiry-notification','info@mucliva.de',{ templateData:{ id:String(id), kind:data.kind, name:data.name, email:data.email, phone:data.phone, submittedAt, details:data.details }, idempotencyKey:`inquiry-notification-${id}`, replyTo:data.email });
+  emailed = result.sent;
+ } catch (e) { console.error('Inquiry notification failed', e); }
+ return { id, saved: true, emailed };
 });
