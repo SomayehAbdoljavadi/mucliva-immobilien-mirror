@@ -4,6 +4,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
   type ErrorComponentProps,
@@ -15,23 +16,31 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header, Footer } from '@/components/mucliva/layout';
 import { InquiryDraftProvider } from '@/components/mucliva/forms';
 import { PreferencesProvider } from '@/lib/preferences';
+import { languageFromPath } from '@/lib/i18n-routes';
+import { translate } from '@/lib/preferences';
 import { PrivacyNotice } from '@/components/mucliva/privacy-notice';
 
+function useTx() {
+  const lang = useRouterState({ select: (s) => languageFromPath(s.location.pathname) });
+  return (text: string) => translate(text, lang);
+}
+
 function NotFoundComponent() {
+  const tx = useTx();
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Seite nicht gefunden</h2>
+        <h2 className="mt-4 text-xl font-semibold text-foreground">{tx("Seite nicht gefunden")}</h2>
         <p className="mt-2 text-sm text-muted-foreground">
-          Diese Seite existiert nicht oder wurde verschoben.
+          {tx("Diese Seite existiert nicht oder wurde verschoben.")}
         </p>
         <div className="mt-6">
           <Link
             to="/"
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Zur Startseite
+            {tx("Zur Startseite")}
           </Link>
         </div>
       </div>
@@ -42,6 +51,7 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error(error);
   const router = useRouter();
+  const tx = useTx();
   useEffect(() => {
     reportLovableError(error, { boundary: "tanstack_root_error_component" });
   }, [error]);
@@ -50,10 +60,10 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          Diese Seite konnte nicht geladen werden
+          {tx("Diese Seite konnte nicht geladen werden")}
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          Bitte versuchen Sie es erneut oder kehren Sie zur Startseite zurück.
+          {tx("Bitte versuchen Sie es erneut oder kehren Sie zur Startseite zurück.")}
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
@@ -63,13 +73,13 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
             }}
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Erneut versuchen
+            {tx("Erneut versuchen")}
           </button>
           <a
-            href="/"
+            href={tx("Zur Startseite") === "Zur Startseite" ? "/" : "/en"}
             className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
           >
-            Zur Startseite
+            {tx("Zur Startseite")}
           </a>
         </div>
       </div>
@@ -105,8 +115,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  const lang = useRouterState({ select: (s) => languageFromPath(s.location.pathname) });
   return (
-    <html lang="de">
+    <html lang={lang}>
       <head>
         <HeadContent />
       </head>
