@@ -8,6 +8,13 @@
       "when": 1791887876179,
       "tag": "0000_create_private_property_inquiries",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1791903581443,
+      "tag": "0001_inquiry_retention",
+      "breakpoints": true
     }
   ]
 }
