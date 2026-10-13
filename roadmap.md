@@ -5,7 +5,7 @@
 - [x] Implement inquiry wizards, contact submission and property filters.
 - [x] Add SEO, sitemap and legal placeholders.
 - [x] Verify navigation, real form submission and desktop/mobile layouts.
-- [x] Add German, English and Persian language controls and light/dark appearance; verify translated forms and Persian layout.
+- [x] German/English bilingual site with /en URLs, DE | EN switch, hreflang and sitemap (Persian removed).
 - [ ] Launch readiness: verified contact/legal/team/listing details and email delivery (requires owner information).
 ## Pre-launch legal checklist (internal)
 - [ ] VAT ID (USt-IdNr./W-IdNr.) — verify whether publication is mandatory
