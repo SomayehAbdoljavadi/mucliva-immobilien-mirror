@@ -9,6 +9,9 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
+        premium: "border border-gold bg-primary text-primary-foreground rounded-none hover:bg-secondary hover:text-secondary-foreground focus-visible:ring-gold",
+        onDark: "bg-transparent text-ivory rounded-none hover:bg-ivory/10 focus-visible:ring-gold",
+        option: "border border-border bg-card text-card-foreground rounded-sm hover:border-sage hover:bg-muted data-[selected=true]:bg-secondary data-[selected=true]:border-primary",
         default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
         destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
         outline:

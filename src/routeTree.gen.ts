@@ -10,33 +10,141 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BewertungRouteImport } from './routes/bewertung'
+import { Route as DatenschutzRouteImport } from './routes/datenschutz'
+import { Route as ImmobilienRouteImport } from './routes/immobilien'
+import { Route as ImpressumRouteImport } from './routes/impressum'
+import { Route as KontaktRouteImport } from './routes/kontakt'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as UeberUnsRouteImport } from './routes/ueber-uns'
+import { Route as VerkaufenRouteImport } from './routes/verkaufen'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BewertungRoute = BewertungRouteImport.update({
+  id: '/bewertung',
+  path: '/bewertung',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DatenschutzRoute = DatenschutzRouteImport.update({
+  id: '/datenschutz',
+  path: '/datenschutz',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImmobilienRoute = ImmobilienRouteImport.update({
+  id: '/immobilien',
+  path: '/immobilien',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImpressumRoute = ImpressumRouteImport.update({
+  id: '/impressum',
+  path: '/impressum',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KontaktRoute = KontaktRouteImport.update({
+  id: '/kontakt',
+  path: '/kontakt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UeberUnsRoute = UeberUnsRouteImport.update({
+  id: '/ueber-uns',
+  path: '/ueber-uns',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VerkaufenRoute = VerkaufenRouteImport.update({
+  id: '/verkaufen',
+  path: '/verkaufen',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/bewertung': typeof BewertungRoute
+  '/datenschutz': typeof DatenschutzRoute
+  '/immobilien': typeof ImmobilienRoute
+  '/impressum': typeof ImpressumRoute
+  '/kontakt': typeof KontaktRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/ueber-uns': typeof UeberUnsRoute
+  '/verkaufen': typeof VerkaufenRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/bewertung': typeof BewertungRoute
+  '/datenschutz': typeof DatenschutzRoute
+  '/immobilien': typeof ImmobilienRoute
+  '/impressum': typeof ImpressumRoute
+  '/kontakt': typeof KontaktRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/ueber-uns': typeof UeberUnsRoute
+  '/verkaufen': typeof VerkaufenRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/bewertung': typeof BewertungRoute
+  '/datenschutz': typeof DatenschutzRoute
+  '/immobilien': typeof ImmobilienRoute
+  '/impressum': typeof ImpressumRoute
+  '/kontakt': typeof KontaktRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/ueber-uns': typeof UeberUnsRoute
+  '/verkaufen': typeof VerkaufenRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/bewertung'
+    | '/datenschutz'
+    | '/immobilien'
+    | '/impressum'
+    | '/kontakt'
+    | '/sitemap.xml'
+    | '/ueber-uns'
+    | '/verkaufen'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/bewertung'
+    | '/datenschutz'
+    | '/immobilien'
+    | '/impressum'
+    | '/kontakt'
+    | '/sitemap.xml'
+    | '/ueber-uns'
+    | '/verkaufen'
+  id:
+    | '__root__'
+    | '/'
+    | '/bewertung'
+    | '/datenschutz'
+    | '/immobilien'
+    | '/impressum'
+    | '/kontakt'
+    | '/sitemap.xml'
+    | '/ueber-uns'
+    | '/verkaufen'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BewertungRoute: typeof BewertungRoute
+  DatenschutzRoute: typeof DatenschutzRoute
+  ImmobilienRoute: typeof ImmobilienRoute
+  ImpressumRoute: typeof ImpressumRoute
+  KontaktRoute: typeof KontaktRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  UeberUnsRoute: typeof UeberUnsRoute
+  VerkaufenRoute: typeof VerkaufenRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +156,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/bewertung': {
+      id: '/bewertung'
+      path: '/bewertung'
+      fullPath: '/bewertung'
+      preLoaderRoute: typeof BewertungRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/datenschutz': {
+      id: '/datenschutz'
+      path: '/datenschutz'
+      fullPath: '/datenschutz'
+      preLoaderRoute: typeof DatenschutzRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/immobilien': {
+      id: '/immobilien'
+      path: '/immobilien'
+      fullPath: '/immobilien'
+      preLoaderRoute: typeof ImmobilienRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/impressum': {
+      id: '/impressum'
+      path: '/impressum'
+      fullPath: '/impressum'
+      preLoaderRoute: typeof ImpressumRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kontakt': {
+      id: '/kontakt'
+      path: '/kontakt'
+      fullPath: '/kontakt'
+      preLoaderRoute: typeof KontaktRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ueber-uns': {
+      id: '/ueber-uns'
+      path: '/ueber-uns'
+      fullPath: '/ueber-uns'
+      preLoaderRoute: typeof UeberUnsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/verkaufen': {
+      id: '/verkaufen'
+      path: '/verkaufen'
+      fullPath: '/verkaufen'
+      preLoaderRoute: typeof VerkaufenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BewertungRoute: BewertungRoute,
+  DatenschutzRoute: DatenschutzRoute,
+  ImmobilienRoute: ImmobilienRoute,
+  ImpressumRoute: ImpressumRoute,
+  KontaktRoute: KontaktRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  UeberUnsRoute: UeberUnsRoute,
+  VerkaufenRoute: VerkaufenRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
