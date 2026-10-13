@@ -21,9 +21,12 @@ export type Database = {
           email: string
           id: string
           kind: string
+          last_contact_at: string
           name: string
           phone: string
           privacy_consent: boolean
+          retention_note: string
+          retention_status: string
         }
         Insert: {
           created_at?: string
@@ -31,9 +34,12 @@ export type Database = {
           email: string
           id?: string
           kind: string
+          last_contact_at?: string
           name: string
           phone?: string
           privacy_consent: boolean
+          retention_note?: string
+          retention_status?: string
         }
         Update: {
           created_at?: string
@@ -41,9 +47,12 @@ export type Database = {
           email?: string
           id?: string
           kind?: string
+          last_contact_at?: string
           name?: string
           phone?: string
           privacy_consent?: boolean
+          retention_note?: string
+          retention_status?: string
         }
         Relationships: []
       }
@@ -52,6 +61,8 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      erase_inquiries_for_email: { Args: { p_email: string }; Returns: number }
+      purge_expired_inquiries: { Args: never; Returns: number }
       save_property_inquiry: {
         Args: {
           p_details: Json

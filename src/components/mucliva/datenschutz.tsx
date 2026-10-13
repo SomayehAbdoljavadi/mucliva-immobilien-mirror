@@ -55,7 +55,7 @@ export function DatenschutzPage() {
       <section className="legal-block">
         <h2>5. Speicherdauer</h2>
         <p>
-          Wir speichern Ihre Anfragedaten nur so lange, wie es für die Bearbeitung Ihres Anliegens erforderlich ist. Anschließend werden sie gelöscht, sofern keine gesetzlichen Aufbewahrungspflichten, insbesondere handels- oder steuerrechtliche Pflichten, entgegenstehen oder Sie in eine längere Speicherung eingewilligt haben.
+          Anfragen, die nicht zu einer Geschäftsbeziehung führen, löschen wir grundsätzlich sechs Monate nach dem letzten relevanten Kontakt, sofern keine gesetzlichen Aufbewahrungspflichten oder andere rechtmäßige Gründe für eine längere Speicherung bestehen. Die Löschung erfolgt automatisiert und endgültig in unserer Datenbank. Bei zustande kommenden Geschäftsbeziehungen gelten gesonderte gesetzliche Aufbewahrungsfristen. Auf Ihren Wunsch löschen wir Ihre Anfragedaten auch früher, soweit keine gesetzlichen Pflichten entgegenstehen.
         </p>
       </section>
 
