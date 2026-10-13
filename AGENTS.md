@@ -15,3 +15,4 @@
 - Keep wizard drafts only in the root React provider during navigation, never persistent browser storage, so personal data does not remain on shared devices.
 - Public inquiry intake is write-only through a validated server function with signed anti-spam challenge, honeypot and atomic per-email rate limiting; inquiry records have no browser read grants.
 - Store submitted inquiries in Lovable Cloud and confirm only successful storage; email delivery is a separate integration and must never be implied.
+- Prebundle the shared React, Slot and discovered client dependency graph at startup; this prevents late optimizer passes from mixing React instances in an open preview.
