@@ -1,0 +1,37 @@
+
+name: MUCLIVA Personal GitHub Mirror
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout primary repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Synchronize personal GitHub mirror
+        env:
+          MIRROR_TOKEN: ${{ secrets.MUCLIVA_MIRROR_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          test -n "$MIRROR_TOKEN"
+
+          AUTH=$(printf 'x-access-token:%s' "$MIRROR_TOKEN" | base64 -w0)
+
+          git -c http.extraheader="AUTHORIZATION: basic $AUTH" \
+            push \
+            https://github.com/SomayehAbdoljavadi/mucliva-immobilien-mirror.git \
+            HEAD:refs/heads/main
