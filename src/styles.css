@@ -362,7 +362,7 @@ html[dir="rtl"] .field input[type="email"],html[dir="rtl"] .field input[type="te
 .legal-warning { border-left:0; border-inline-start:2px solid var(--gold); }
 @media(max-width:1200px) { .desktop-nav { gap:14px; } .nav-logo { width:175px; } .nav-cta { margin-left:0; padding-inline:12px; } }
 @media(min-width:901px) and (max-width:1080px) { .nav-cta { display:none; } }
-@media(max-width:650px) { .nav-inner { flex-wrap:wrap; gap:8px; padding-block:12px; } .nav-logo { width:170px; } .preference-controls { margin-inline-start:auto; } .mobile-menu-toggle { width:30px; } .language-button { min-width:30px; padding-inline:6px; } html[dir="rtl"] .hero h1 { font-size:36px; } }
+@media(max-width:650px) { .nav-inner { flex-wrap:wrap; gap:8px; padding-block:12px; } .nav-logo { width:170px; } .preference-controls { margin-inline-start:auto; } .mobile-menu-toggle { width:30px; } html[dir="rtl"] .hero h1 { font-size:36px; } }
 @media(max-width:400px) { .nav-logo { width:135px; } .nav-inner { width:calc(100% - 24px); gap:4px; } .preference-controls { gap:3px; } .theme-toggle { width:30px; } }
 
 .trap-field { position:fixed; left:0; top:0; clip-path:inset(50%); pointer-events:none; }
