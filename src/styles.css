@@ -346,9 +346,7 @@ summary::-webkit-details-marker { display:none; }
 @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation:none!important; transition:none!important; } }
 
 .preference-controls { display:flex; align-items:center; gap:7px; flex-shrink:0; }
-.language-switch { display:flex; direction:ltr; border:1px solid var(--dark-border); border-radius:3px; }
-.language-button { min-width:35px; height:34px; padding-inline:8px; font-size:11px; border-radius:0; }
-.language-button[aria-pressed="true"] { background:var(--gold); color:var(--forest); }
+.language-switch { direction:ltr; }
 .theme-toggle { width:34px; height:34px; }
 .nav-inner { gap:18px; }
 html[dir="rtl"] { --font-sans:'Vazirmatn',sans-serif; --font-display:'Vazirmatn',sans-serif; }
@@ -392,12 +390,12 @@ html[dir="rtl"] .hero-content { text-align:right; }
 @keyframes privacy-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.privacy-notice{animation:none}}
 
-.language-switch{display:flex;align-items:center;gap:6px;font-size:11px;letter-spacing:.12em;font-weight:600}
-.language-switch a{color:color-mix(in oklab,var(--ivory) 70%,transparent);padding:6px 2px;border-bottom:1px solid transparent;transition:color .2s}
-.language-switch a:hover{color:var(--ivory)}
+.language-switch{display:flex;align-items:center;gap:4px;font-size:11px;letter-spacing:.12em;font-weight:600}
+.language-switch a{color:inherit;padding:6px 7px;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
+.language-switch a:hover{color:var(--gold)}
 .language-switch a.active{color:var(--gold);border-color:var(--gold)}
-.language-sep{color:color-mix(in oklab,var(--gold) 55%,transparent)}
+.language-sep{color:color-mix(in oklab,var(--gold) 45%,transparent);font-weight:400}
 .language-switch--desktop{margin-inline-end:8px}
-.mobile-nav .language-switch--mobile{display:flex;justify-content:flex-start;gap:12px;padding-top:18px;font-size:13px}
+.mobile-nav .language-switch--mobile{display:flex;justify-content:flex-start;gap:6px;padding-top:18px;font-size:13px}
 .mobile-nav .language-switch--mobile a{display:inline-block;padding-block:6px}
 @media(max-width:900px){.language-switch--desktop{display:none}}
