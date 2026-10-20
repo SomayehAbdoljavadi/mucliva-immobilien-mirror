@@ -38,8 +38,8 @@ function CardPage() {
       <h1 className="mt-3 text-3xl">Visitenkarte Dipl.-Ing. Mehdi Mardi</h1>
       <p className="mt-2 text-muted-foreground">85 × 55 mm Endformat, 3 mm Beschnitt (91 × 61 mm), RGB-Testdatei.</p>
       <div className="mt-6 flex gap-2">
-        <Button variant={actual ? 'outline' : 'default'} onClick={() => setActual(false)}>Vergrößert</Button>
-        <Button variant={actual ? 'default' : 'outline'} onClick={() => setActual(true)}>Originalgröße</Button>
+        <Button variant={actual ? 'default' : 'outline'} aria-pressed={!actual} onClick={() => setActual(false)}>Vergrößert</Button>
+        <Button variant={actual ? 'outline' : 'default'} aria-pressed={actual} onClick={() => setActual(true)}>Originalgröße</Button>
       </div>
       <div className="mt-8 grid gap-8 md:grid-cols-2">
         {[['Vorderseite', 'Front'], ['Rückseite', 'Back']].map(([label, f]) => (
