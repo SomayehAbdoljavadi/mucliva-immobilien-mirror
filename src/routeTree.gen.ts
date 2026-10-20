@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BewertungRouteImport } from './routes/bewertung'
+import { Route as BriefpapierRouteImport } from './routes/briefpapier'
 import { Route as DatenschutzRouteImport } from './routes/datenschutz'
 import { Route as ImmobilienRouteImport } from './routes/immobilien'
 import { Route as ImpressumRouteImport } from './routes/impressum'
@@ -37,6 +38,11 @@ const IndexRoute = IndexRouteImport.update({
 const BewertungRoute = BewertungRouteImport.update({
   id: '/bewertung',
   path: '/bewertung',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BriefpapierRoute = BriefpapierRouteImport.update({
+  id: '/briefpapier',
+  path: '/briefpapier',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DatenschutzRoute = DatenschutzRouteImport.update({
@@ -129,6 +135,7 @@ const LovableEmailTransactionalPreviewRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/bewertung': typeof BewertungRoute
+  '/briefpapier': typeof BriefpapierRoute
   '/datenschutz': typeof DatenschutzRoute
   '/immobilien': typeof ImmobilienRoute
   '/impressum': typeof ImpressumRoute
@@ -150,6 +157,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/bewertung': typeof BewertungRoute
+  '/briefpapier': typeof BriefpapierRoute
   '/datenschutz': typeof DatenschutzRoute
   '/immobilien': typeof ImmobilienRoute
   '/impressum': typeof ImpressumRoute
@@ -172,6 +180,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/bewertung': typeof BewertungRoute
+  '/briefpapier': typeof BriefpapierRoute
   '/datenschutz': typeof DatenschutzRoute
   '/immobilien': typeof ImmobilienRoute
   '/impressum': typeof ImpressumRoute
@@ -195,6 +204,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/bewertung'
+    | '/briefpapier'
     | '/datenschutz'
     | '/immobilien'
     | '/impressum'
@@ -216,6 +226,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/bewertung'
+    | '/briefpapier'
     | '/datenschutz'
     | '/immobilien'
     | '/impressum'
@@ -237,6 +248,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/bewertung'
+    | '/briefpapier'
     | '/datenschutz'
     | '/immobilien'
     | '/impressum'
@@ -259,6 +271,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BewertungRoute: typeof BewertungRoute
+  BriefpapierRoute: typeof BriefpapierRoute
   DatenschutzRoute: typeof DatenschutzRoute
   ImmobilienRoute: typeof ImmobilienRoute
   ImpressumRoute: typeof ImpressumRoute
@@ -292,6 +305,13 @@ declare module '@tanstack/react-router' {
       path: '/bewertung'
       fullPath: '/bewertung'
       preLoaderRoute: typeof BewertungRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/briefpapier': {
+      id: '/briefpapier'
+      path: '/briefpapier'
+      fullPath: '/briefpapier'
+      preLoaderRoute: typeof BriefpapierRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/datenschutz': {
@@ -419,6 +439,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BewertungRoute: BewertungRoute,
+  BriefpapierRoute: BriefpapierRoute,
   DatenschutzRoute: DatenschutzRoute,
   ImmobilienRoute: ImmobilienRoute,
   ImpressumRoute: ImpressumRoute,
