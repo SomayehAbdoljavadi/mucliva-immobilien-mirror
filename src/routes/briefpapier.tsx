@@ -6,6 +6,8 @@ const BASE = '/downloads/briefpapier/';
 const files = [
   ['A4 PDF', 'MUCLIVA_Letterhead_A4.pdf'],
   ['A5 PDF', 'MUCLIVA_Letterhead_A5.pdf'],
+  ['A4 Word', 'MUCLIVA_Letterhead_A4.docx'],
+  ['A5 Word', 'MUCLIVA_Letterhead_A5.docx'],
   ['A4 PNG-Vorschau', 'MUCLIVA_Letterhead_A4.png'],
   ['A5 PNG-Vorschau', 'MUCLIVA_Letterhead_A5.png'],
   ['A4 bearbeitbar (HTML)', 'MUCLIVA_Letterhead_A4_Editable.html'],
