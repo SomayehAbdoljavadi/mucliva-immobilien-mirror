@@ -18,6 +18,7 @@ import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as UeberUnsRouteImport } from './routes/ueber-uns'
 import { Route as VerkaufenRouteImport } from './routes/verkaufen'
+import { Route as VisitenkarteRouteImport } from './routes/visitenkarte'
 import { Route as EnIndexRouteImport } from './routes/en/index'
 import { Route as EnAboutRouteImport } from './routes/en/about'
 import { Route as EnContactRouteImport } from './routes/en/contact'
@@ -71,6 +72,11 @@ const UeberUnsRoute = UeberUnsRouteImport.update({
 const VerkaufenRoute = VerkaufenRouteImport.update({
   id: '/verkaufen',
   path: '/verkaufen',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VisitenkarteRoute = VisitenkarteRouteImport.update({
+  id: '/visitenkarte',
+  path: '/visitenkarte',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EnIndexRoute = EnIndexRouteImport.update({
@@ -130,6 +136,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ueber-uns': typeof UeberUnsRoute
   '/verkaufen': typeof VerkaufenRoute
+  '/visitenkarte': typeof VisitenkarteRoute
   '/en/about': typeof EnAboutRoute
   '/en/contact': typeof EnContactRoute
   '/en/legal-notice': typeof EnLegalNoticeRoute
@@ -150,6 +157,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ueber-uns': typeof UeberUnsRoute
   '/verkaufen': typeof VerkaufenRoute
+  '/visitenkarte': typeof VisitenkarteRoute
   '/en/about': typeof EnAboutRoute
   '/en/contact': typeof EnContactRoute
   '/en/legal-notice': typeof EnLegalNoticeRoute
@@ -171,6 +179,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ueber-uns': typeof UeberUnsRoute
   '/verkaufen': typeof VerkaufenRoute
+  '/visitenkarte': typeof VisitenkarteRoute
   '/en/about': typeof EnAboutRoute
   '/en/contact': typeof EnContactRoute
   '/en/legal-notice': typeof EnLegalNoticeRoute
@@ -193,6 +202,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/ueber-uns'
     | '/verkaufen'
+    | '/visitenkarte'
     | '/en/about'
     | '/en/contact'
     | '/en/legal-notice'
@@ -213,6 +223,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/ueber-uns'
     | '/verkaufen'
+    | '/visitenkarte'
     | '/en/about'
     | '/en/contact'
     | '/en/legal-notice'
@@ -233,6 +244,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/ueber-uns'
     | '/verkaufen'
+    | '/visitenkarte'
     | '/en/about'
     | '/en/contact'
     | '/en/legal-notice'
@@ -254,6 +266,7 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   UeberUnsRoute: typeof UeberUnsRoute
   VerkaufenRoute: typeof VerkaufenRoute
+  VisitenkarteRoute: typeof VisitenkarteRoute
   EnAboutRoute: typeof EnAboutRoute
   EnContactRoute: typeof EnContactRoute
   EnLegalNoticeRoute: typeof EnLegalNoticeRoute
@@ -328,6 +341,13 @@ declare module '@tanstack/react-router' {
       path: '/verkaufen'
       fullPath: '/verkaufen'
       preLoaderRoute: typeof VerkaufenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/visitenkarte': {
+      id: '/visitenkarte'
+      path: '/visitenkarte'
+      fullPath: '/visitenkarte'
+      preLoaderRoute: typeof VisitenkarteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/en/': {
@@ -406,6 +426,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   UeberUnsRoute: UeberUnsRoute,
   VerkaufenRoute: VerkaufenRoute,
+  VisitenkarteRoute: VisitenkarteRoute,
   EnAboutRoute: EnAboutRoute,
   EnContactRoute: EnContactRoute,
   EnLegalNoticeRoute: EnLegalNoticeRoute,
