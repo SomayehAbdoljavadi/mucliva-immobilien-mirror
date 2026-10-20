@@ -11,6 +11,9 @@ const files = [
   ['Vorderseite PNG', 'MUCLIVA_BusinessCard_Test_Front.png'],
   ['Rückseite PNG', 'MUCLIVA_BusinessCard_Test_Back.png'],
   ['Alle Dateien (ZIP)', 'MUCLIVA_BusinessCard_Test_All.zip'],
+  ['A4 Testdruck PDF', 'MUCLIVA_BusinessCard_A4_TestPrint.pdf'],
+  ['A4 Testdruck PNG', 'MUCLIVA_BusinessCard_A4_TestPrint.png'],
+  ['A4 Testdruck mit Schnittmarken', 'MUCLIVA_BusinessCard_A4_TestPrint_CropMarks.pdf'],
 ] as const;
 
 export const Route = createFileRoute('/visitenkarte')({
