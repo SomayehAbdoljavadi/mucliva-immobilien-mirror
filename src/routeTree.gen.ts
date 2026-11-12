@@ -15,8 +15,10 @@ import { Route as BriefpapierRouteImport } from './routes/briefpapier'
 import { Route as DatenschutzRouteImport } from './routes/datenschutz'
 import { Route as ImmobilienRouteImport } from './routes/immobilien'
 import { Route as ImpressumRouteImport } from './routes/impressum'
+import { Route as KiarashRouteImport } from './routes/kiarash'
 import { Route as KiarashPahlevaniRouteImport } from './routes/kiarash-pahlevani'
 import { Route as KontaktRouteImport } from './routes/kontakt'
+import { Route as MehdiRouteImport } from './routes/mehdi'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as UeberUnsRouteImport } from './routes/ueber-uns'
 import { Route as VerkaufenRouteImport } from './routes/verkaufen'
@@ -24,7 +26,9 @@ import { Route as VisitenkarteRouteImport } from './routes/visitenkarte'
 import { Route as EnIndexRouteImport } from './routes/en/index'
 import { Route as EnAboutRouteImport } from './routes/en/about'
 import { Route as EnContactRouteImport } from './routes/en/contact'
+import { Route as EnKiarashRouteImport } from './routes/en/kiarash'
 import { Route as EnLegalNoticeRouteImport } from './routes/en/legal-notice'
+import { Route as EnMehdiRouteImport } from './routes/en/mehdi'
 import { Route as EnPrivacyPolicyRouteImport } from './routes/en/privacy-policy'
 import { Route as EnPropertiesRouteImport } from './routes/en/properties'
 import { Route as EnSellRouteImport } from './routes/en/sell'
@@ -61,6 +65,11 @@ const ImpressumRoute = ImpressumRouteImport.update({
   path: '/impressum',
   getParentRoute: () => rootRouteImport,
 } as any)
+const KiarashRoute = KiarashRouteImport.update({
+  id: '/kiarash',
+  path: '/kiarash',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const KiarashPahlevaniRoute = KiarashPahlevaniRouteImport.update({
   id: '/kiarash-pahlevani',
   path: '/kiarash-pahlevani',
@@ -69,6 +78,11 @@ const KiarashPahlevaniRoute = KiarashPahlevaniRouteImport.update({
 const KontaktRoute = KontaktRouteImport.update({
   id: '/kontakt',
   path: '/kontakt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MehdiRoute = MehdiRouteImport.update({
+  id: '/mehdi',
+  path: '/mehdi',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -106,9 +120,19 @@ const EnContactRoute = EnContactRouteImport.update({
   path: '/en/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EnKiarashRoute = EnKiarashRouteImport.update({
+  id: '/en/kiarash',
+  path: '/en/kiarash',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EnLegalNoticeRoute = EnLegalNoticeRouteImport.update({
   id: '/en/legal-notice',
   path: '/en/legal-notice',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnMehdiRoute = EnMehdiRouteImport.update({
+  id: '/en/mehdi',
+  path: '/en/mehdi',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EnPrivacyPolicyRoute = EnPrivacyPolicyRouteImport.update({
@@ -145,15 +169,19 @@ export interface FileRoutesByFullPath {
   '/datenschutz': typeof DatenschutzRoute
   '/immobilien': typeof ImmobilienRoute
   '/impressum': typeof ImpressumRoute
+  '/kiarash': typeof KiarashRoute
   '/kiarash-pahlevani': typeof KiarashPahlevaniRoute
   '/kontakt': typeof KontaktRoute
+  '/mehdi': typeof MehdiRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ueber-uns': typeof UeberUnsRoute
   '/verkaufen': typeof VerkaufenRoute
   '/visitenkarte': typeof VisitenkarteRoute
   '/en/about': typeof EnAboutRoute
   '/en/contact': typeof EnContactRoute
+  '/en/kiarash': typeof EnKiarashRoute
   '/en/legal-notice': typeof EnLegalNoticeRoute
+  '/en/mehdi': typeof EnMehdiRoute
   '/en/privacy-policy': typeof EnPrivacyPolicyRoute
   '/en/properties': typeof EnPropertiesRoute
   '/en/sell': typeof EnSellRoute
@@ -168,15 +196,19 @@ export interface FileRoutesByTo {
   '/datenschutz': typeof DatenschutzRoute
   '/immobilien': typeof ImmobilienRoute
   '/impressum': typeof ImpressumRoute
+  '/kiarash': typeof KiarashRoute
   '/kiarash-pahlevani': typeof KiarashPahlevaniRoute
   '/kontakt': typeof KontaktRoute
+  '/mehdi': typeof MehdiRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ueber-uns': typeof UeberUnsRoute
   '/verkaufen': typeof VerkaufenRoute
   '/visitenkarte': typeof VisitenkarteRoute
   '/en/about': typeof EnAboutRoute
   '/en/contact': typeof EnContactRoute
+  '/en/kiarash': typeof EnKiarashRoute
   '/en/legal-notice': typeof EnLegalNoticeRoute
+  '/en/mehdi': typeof EnMehdiRoute
   '/en/privacy-policy': typeof EnPrivacyPolicyRoute
   '/en/properties': typeof EnPropertiesRoute
   '/en/sell': typeof EnSellRoute
@@ -192,15 +224,19 @@ export interface FileRoutesById {
   '/datenschutz': typeof DatenschutzRoute
   '/immobilien': typeof ImmobilienRoute
   '/impressum': typeof ImpressumRoute
+  '/kiarash': typeof KiarashRoute
   '/kiarash-pahlevani': typeof KiarashPahlevaniRoute
   '/kontakt': typeof KontaktRoute
+  '/mehdi': typeof MehdiRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ueber-uns': typeof UeberUnsRoute
   '/verkaufen': typeof VerkaufenRoute
   '/visitenkarte': typeof VisitenkarteRoute
   '/en/about': typeof EnAboutRoute
   '/en/contact': typeof EnContactRoute
+  '/en/kiarash': typeof EnKiarashRoute
   '/en/legal-notice': typeof EnLegalNoticeRoute
+  '/en/mehdi': typeof EnMehdiRoute
   '/en/privacy-policy': typeof EnPrivacyPolicyRoute
   '/en/properties': typeof EnPropertiesRoute
   '/en/sell': typeof EnSellRoute
@@ -217,15 +253,19 @@ export interface FileRouteTypes {
     | '/datenschutz'
     | '/immobilien'
     | '/impressum'
+    | '/kiarash'
     | '/kiarash-pahlevani'
     | '/kontakt'
+    | '/mehdi'
     | '/sitemap.xml'
     | '/ueber-uns'
     | '/verkaufen'
     | '/visitenkarte'
     | '/en/about'
     | '/en/contact'
+    | '/en/kiarash'
     | '/en/legal-notice'
+    | '/en/mehdi'
     | '/en/privacy-policy'
     | '/en/properties'
     | '/en/sell'
@@ -240,15 +280,19 @@ export interface FileRouteTypes {
     | '/datenschutz'
     | '/immobilien'
     | '/impressum'
+    | '/kiarash'
     | '/kiarash-pahlevani'
     | '/kontakt'
+    | '/mehdi'
     | '/sitemap.xml'
     | '/ueber-uns'
     | '/verkaufen'
     | '/visitenkarte'
     | '/en/about'
     | '/en/contact'
+    | '/en/kiarash'
     | '/en/legal-notice'
+    | '/en/mehdi'
     | '/en/privacy-policy'
     | '/en/properties'
     | '/en/sell'
@@ -263,15 +307,19 @@ export interface FileRouteTypes {
     | '/datenschutz'
     | '/immobilien'
     | '/impressum'
+    | '/kiarash'
     | '/kiarash-pahlevani'
     | '/kontakt'
+    | '/mehdi'
     | '/sitemap.xml'
     | '/ueber-uns'
     | '/verkaufen'
     | '/visitenkarte'
     | '/en/about'
     | '/en/contact'
+    | '/en/kiarash'
     | '/en/legal-notice'
+    | '/en/mehdi'
     | '/en/privacy-policy'
     | '/en/properties'
     | '/en/sell'
@@ -287,15 +335,19 @@ export interface RootRouteChildren {
   DatenschutzRoute: typeof DatenschutzRoute
   ImmobilienRoute: typeof ImmobilienRoute
   ImpressumRoute: typeof ImpressumRoute
+  KiarashRoute: typeof KiarashRoute
   KiarashPahlevaniRoute: typeof KiarashPahlevaniRoute
   KontaktRoute: typeof KontaktRoute
+  MehdiRoute: typeof MehdiRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   UeberUnsRoute: typeof UeberUnsRoute
   VerkaufenRoute: typeof VerkaufenRoute
   VisitenkarteRoute: typeof VisitenkarteRoute
   EnAboutRoute: typeof EnAboutRoute
   EnContactRoute: typeof EnContactRoute
+  EnKiarashRoute: typeof EnKiarashRoute
   EnLegalNoticeRoute: typeof EnLegalNoticeRoute
+  EnMehdiRoute: typeof EnMehdiRoute
   EnPrivacyPolicyRoute: typeof EnPrivacyPolicyRoute
   EnPropertiesRoute: typeof EnPropertiesRoute
   EnSellRoute: typeof EnSellRoute
@@ -348,6 +400,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ImpressumRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/kiarash': {
+      id: '/kiarash'
+      path: '/kiarash'
+      fullPath: '/kiarash'
+      preLoaderRoute: typeof KiarashRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/kiarash-pahlevani': {
       id: '/kiarash-pahlevani'
       path: '/kiarash-pahlevani'
@@ -360,6 +419,13 @@ declare module '@tanstack/react-router' {
       path: '/kontakt'
       fullPath: '/kontakt'
       preLoaderRoute: typeof KontaktRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mehdi': {
+      id: '/mehdi'
+      path: '/mehdi'
+      fullPath: '/mehdi'
+      preLoaderRoute: typeof MehdiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -411,11 +477,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EnContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/en/kiarash': {
+      id: '/en/kiarash'
+      path: '/en/kiarash'
+      fullPath: '/en/kiarash'
+      preLoaderRoute: typeof EnKiarashRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/en/legal-notice': {
       id: '/en/legal-notice'
       path: '/en/legal-notice'
       fullPath: '/en/legal-notice'
       preLoaderRoute: typeof EnLegalNoticeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/mehdi': {
+      id: '/en/mehdi'
+      path: '/en/mehdi'
+      fullPath: '/en/mehdi'
+      preLoaderRoute: typeof EnMehdiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/en/privacy-policy': {
@@ -463,15 +543,19 @@ const rootRouteChildren: RootRouteChildren = {
   DatenschutzRoute: DatenschutzRoute,
   ImmobilienRoute: ImmobilienRoute,
   ImpressumRoute: ImpressumRoute,
+  KiarashRoute: KiarashRoute,
   KiarashPahlevaniRoute: KiarashPahlevaniRoute,
   KontaktRoute: KontaktRoute,
+  MehdiRoute: MehdiRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   UeberUnsRoute: UeberUnsRoute,
   VerkaufenRoute: VerkaufenRoute,
   VisitenkarteRoute: VisitenkarteRoute,
   EnAboutRoute: EnAboutRoute,
   EnContactRoute: EnContactRoute,
+  EnKiarashRoute: EnKiarashRoute,
   EnLegalNoticeRoute: EnLegalNoticeRoute,
+  EnMehdiRoute: EnMehdiRoute,
   EnPrivacyPolicyRoute: EnPrivacyPolicyRoute,
   EnPropertiesRoute: EnPropertiesRoute,
   EnSellRoute: EnSellRoute,

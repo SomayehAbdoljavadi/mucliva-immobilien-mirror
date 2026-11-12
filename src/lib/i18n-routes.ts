@@ -12,7 +12,10 @@ export const deToEn = {
   '/datenschutz': '/en/privacy-policy',
 } as const;
 
-const enToDe: Record<string, string> = Object.fromEntries(Object.entries(deToEn).map(([de, en]) => [en, de]));
+// Digital business cards: localized, but kept out of the sitemap.
+export const cardDeToEn = { '/kiarash-pahlevani': '/en/kiarash', '/mehdi': '/en/mehdi' } as const;
+const allDeToEn: Record<string, string> = { ...deToEn, ...cardDeToEn };
+const enToDe: Record<string, string> = Object.fromEntries(Object.entries(allDeToEn).map(([de, en]) => [en, de]));
 
 function stripTrailing(path: string) {
   return path.length > 1 ? path.replace(/\/+$/, '') : path;
@@ -26,7 +29,7 @@ export function languageFromPath(pathname: string): Language {
 export function localizePath(to: string, language: Language): string {
   if (language === 'de') return to;
   const [path, hash] = to.split('#');
-  const mapped = (deToEn as Record<string, string>)[stripTrailing(path ?? '/')] ?? path ?? '/';
+  const mapped = allDeToEn[stripTrailing(path ?? '/')] ?? path ?? '/';
   return hash ? `${mapped}#${hash}` : mapped;
 }
 
@@ -34,5 +37,5 @@ export function localizePath(to: string, language: Language): string {
 export function alternatesFor(pathname: string): { de: string; en: string } {
   const p = stripTrailing(pathname);
   if (languageFromPath(p) === 'en') return { de: enToDe[p] ?? '/', en: p };
-  return { de: p, en: (deToEn as Record<string, string>)[p] ?? '/en' };
+  return { de: p, en: allDeToEn[p] ?? '/en' };
 }
