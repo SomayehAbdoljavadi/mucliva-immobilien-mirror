@@ -15,6 +15,7 @@ import { Route as BriefpapierRouteImport } from './routes/briefpapier'
 import { Route as DatenschutzRouteImport } from './routes/datenschutz'
 import { Route as ImmobilienRouteImport } from './routes/immobilien'
 import { Route as ImpressumRouteImport } from './routes/impressum'
+import { Route as KiarashPahlevaniRouteImport } from './routes/kiarash-pahlevani'
 import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as UeberUnsRouteImport } from './routes/ueber-uns'
@@ -58,6 +59,11 @@ const ImmobilienRoute = ImmobilienRouteImport.update({
 const ImpressumRoute = ImpressumRouteImport.update({
   id: '/impressum',
   path: '/impressum',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KiarashPahlevaniRoute = KiarashPahlevaniRouteImport.update({
+  id: '/kiarash-pahlevani',
+  path: '/kiarash-pahlevani',
   getParentRoute: () => rootRouteImport,
 } as any)
 const KontaktRoute = KontaktRouteImport.update({
@@ -139,6 +145,7 @@ export interface FileRoutesByFullPath {
   '/datenschutz': typeof DatenschutzRoute
   '/immobilien': typeof ImmobilienRoute
   '/impressum': typeof ImpressumRoute
+  '/kiarash-pahlevani': typeof KiarashPahlevaniRoute
   '/kontakt': typeof KontaktRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ueber-uns': typeof UeberUnsRoute
@@ -161,6 +168,7 @@ export interface FileRoutesByTo {
   '/datenschutz': typeof DatenschutzRoute
   '/immobilien': typeof ImmobilienRoute
   '/impressum': typeof ImpressumRoute
+  '/kiarash-pahlevani': typeof KiarashPahlevaniRoute
   '/kontakt': typeof KontaktRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ueber-uns': typeof UeberUnsRoute
@@ -184,6 +192,7 @@ export interface FileRoutesById {
   '/datenschutz': typeof DatenschutzRoute
   '/immobilien': typeof ImmobilienRoute
   '/impressum': typeof ImpressumRoute
+  '/kiarash-pahlevani': typeof KiarashPahlevaniRoute
   '/kontakt': typeof KontaktRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/ueber-uns': typeof UeberUnsRoute
@@ -208,6 +217,7 @@ export interface FileRouteTypes {
     | '/datenschutz'
     | '/immobilien'
     | '/impressum'
+    | '/kiarash-pahlevani'
     | '/kontakt'
     | '/sitemap.xml'
     | '/ueber-uns'
@@ -230,6 +240,7 @@ export interface FileRouteTypes {
     | '/datenschutz'
     | '/immobilien'
     | '/impressum'
+    | '/kiarash-pahlevani'
     | '/kontakt'
     | '/sitemap.xml'
     | '/ueber-uns'
@@ -252,6 +263,7 @@ export interface FileRouteTypes {
     | '/datenschutz'
     | '/immobilien'
     | '/impressum'
+    | '/kiarash-pahlevani'
     | '/kontakt'
     | '/sitemap.xml'
     | '/ueber-uns'
@@ -275,6 +287,7 @@ export interface RootRouteChildren {
   DatenschutzRoute: typeof DatenschutzRoute
   ImmobilienRoute: typeof ImmobilienRoute
   ImpressumRoute: typeof ImpressumRoute
+  KiarashPahlevaniRoute: typeof KiarashPahlevaniRoute
   KontaktRoute: typeof KontaktRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   UeberUnsRoute: typeof UeberUnsRoute
@@ -333,6 +346,13 @@ declare module '@tanstack/react-router' {
       path: '/impressum'
       fullPath: '/impressum'
       preLoaderRoute: typeof ImpressumRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kiarash-pahlevani': {
+      id: '/kiarash-pahlevani'
+      path: '/kiarash-pahlevani'
+      fullPath: '/kiarash-pahlevani'
+      preLoaderRoute: typeof KiarashPahlevaniRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/kontakt': {
@@ -443,6 +463,7 @@ const rootRouteChildren: RootRouteChildren = {
   DatenschutzRoute: DatenschutzRoute,
   ImmobilienRoute: ImmobilienRoute,
   ImpressumRoute: ImpressumRoute,
+  KiarashPahlevaniRoute: KiarashPahlevaniRoute,
   KontaktRoute: KontaktRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   UeberUnsRoute: UeberUnsRoute,

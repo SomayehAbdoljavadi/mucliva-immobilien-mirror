@@ -1,0 +1,14 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Pahlevani;Kiarash;;;M.Sc.
+FN:Kiarash Pahlevani\, M.Sc.
+ORG:MUCLIVA Immobilien – Munich Construction GmbH
+TITLE:Immobilienberater
+NOTE:Spezialist für Immobilienkauf und -verkauf
+TEL;TYPE=CELL,VOICE:+491784784982
+TEL;TYPE=WORK,VOICE:+498957843675
+EMAIL;TYPE=WORK,INTERNET:info@mucliva.de
+ADR;TYPE=WORK:;;Heiterwanger Straße 30;München;;81373;Deutschland
+URL:https://mucliva.de
+URL:https://www.munichconstruction.de
+END:VCARD
