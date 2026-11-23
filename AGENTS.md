@@ -18,3 +18,4 @@
 - Prebundle the shared React, Slot and discovered client dependency graph at startup; this prevents late optimizer passes from mixing React instances in an open preview.
 - The site is German (default, unprefixed URLs) and English (/en/* via the i18n-routes map); language comes from the URL so SSR and hydration match. Components write German text through t() and German paths through the localized Link; English lives in the translations catalog, and legal pages keep German as authoritative. Only non-personal theme, language and notice-dismissal flags may be persisted.
 - Brand images rendered on the site are bundled files imported from src/assets, not Lovable asset pointers: production also deploys to a self-hosted Cloudflare Worker that does not serve /__l5e/ asset URLs.
+- Digital business cards share one component and a central person-data module; QR codes always encode the permanent production URL so printed or shared codes never point to preview hosts.

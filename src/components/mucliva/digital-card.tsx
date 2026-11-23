@@ -1,7 +1,6 @@
 import { useMemo, useState } from 'react';
 import QRCode from 'qrcode';
 import { Phone, Mail, Globe, MapPin, Download, Building2, MessageCircle, Share2, Link2, QrCode, X } from 'lucide-react';
-import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';
 import { cardAddress, cardEmail, cardOffice, PRODUCTION_ORIGIN, type DigitalCard } from '@/lib/digital-cards';
 
@@ -29,10 +28,11 @@ export function DigitalCardPage({ card, lang }: { card: DigitalCard; lang: 'de' 
   const url = PRODUCTION_ORIGIN + card.paths[lang];
   const { svg, qr, size } = useMemo(() => qrSvg(url), [url]);
   const [open, setOpen] = useState(false);
+  const [notice, setNotice] = useState('');
   const file = `${card.filePrefix}_QR_${lang.toUpperCase()}`;
 
   const copyLink = async () => {
-    try { await navigator.clipboard.writeText(url); toast.success(c.copied); } catch { toast.error(c.copyFail); }
+    try { await navigator.clipboard.writeText(url); setNotice(c.copied); } catch { setNotice(c.copyFail + ': ' + url); }
   };
   const share = async () => {
     if (navigator.share) { try { await navigator.share({ title: card.name, url }); return; } catch (e) { if ((e as DOMException).name === 'AbortError') return; } }
@@ -78,7 +78,8 @@ export function DigitalCardPage({ card, lang }: { card: DigitalCard; lang: 'de' 
             <Button variant="outline" size="lg" className="justify-start" onClick={copyLink}><Link2 />{c.copyLink}</Button>
             <Button variant="outline" size="lg" className="justify-start sm:col-span-2" onClick={() => setOpen(true)}><QrCode />{c.showQr}</Button>
           </div>
-          <dl className="mt-10 grid gap-4 border-t border-border pt-8 text-sm">
+          <p role="status" aria-live="polite" className="mt-3 min-h-5 text-sm text-primary">{notice}</p>
+          <dl className="mt-7 grid gap-4 border-t border-border pt-8 text-sm">
             <Row icon={Phone} label={c.lMobile}><a href={`tel:${card.mobile.e164}`}>{card.mobile.display}</a></Row>
             <Row icon={Building2} label={c.lOffice}><a href={`tel:${cardOffice.e164}`}>{cardOffice.display}</a></Row>
             <Row icon={Mail} label={c.lMail}><a href={`mailto:${cardEmail}`}>{cardEmail}</a></Row>
